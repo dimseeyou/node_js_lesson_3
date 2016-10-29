@@ -15,9 +15,6 @@ rl.write('Please, enter sport (for example: Футбол, Теннис, Хокк
 rl.on('line', function(sport) {
 
 	request('http://www.sports.ru/', function (error, response, html) {
-	 
-
-
 	  if (error)
 	    throw error;
 
@@ -25,9 +22,8 @@ rl.on('line', function(sport) {
 	    return console.log('incorrect statusCode: ', response.statusCode);
 
 	  var $ = cheerio.load(html);
-	 
-
-       $('.aside-news-list__item-sport').each(function(i, element) {
+       	
+	  $('.aside-news-list__item-sport').each(function(i, element) {
 		    if ($(element).text().trim() == sport){
 		    	var type = $(element).text().trim();
 		    	var date = $(element).next().text().trim();
@@ -36,8 +32,8 @@ rl.on('line', function(sport) {
 		    	//console.log($(element > a).text().trim());
 		    	console.log(`Спорт: ${type}\nДата: ${date}\nНовость: ${content}\n`);
 		    };
-		});
-    })
+	  });
+	})
 
 	this.close();
 });
