@@ -16,9 +16,7 @@ http.createServer(function(req, res)  {
                 res.write(`${answer}</br>`);
                 res.write(`English => ${inEng}<br/>Русский => ${inRus}`);
                 res.end();
-           
-    });
-     
+     });
 })
   .listen(PORT, function () {
     console.log("Let's get started with port: ", PORT);
